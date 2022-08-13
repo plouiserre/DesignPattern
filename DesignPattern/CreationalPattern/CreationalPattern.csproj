@@ -7,7 +7,11 @@
 
   <ItemGroup>
     <Folder Include="AbstractFactory\" />
-    <Folder Include="AbstractFactory\Product\" />
-    <Folder Include="AbstractFactory\Factory\" />
+    <Folder Include="Product\" />
+    <Folder Include="Builder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Product\" />
+    <None Remove="Builder\" />
   </ItemGroup>
 </Project>

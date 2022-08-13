@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CreationalPattern.AbstractFactory.Product
+namespace CreationalPattern.Product
 {
     public abstract class AbstractPupil
     {
@@ -9,11 +9,14 @@ namespace CreationalPattern.AbstractFactory.Product
 
         public string Level { get; set; }
 
-        public AbstractPupil(string lastName, string firstName, string level)
+        public string EtablishmentName { get; set; }
+
+        public AbstractPupil(string lastName, string firstName, string level, string etablishmentName)
         {
             LastName = lastName;
             FirstName = firstName;
             Level = level;
+            EtablishmentName = etablishmentName;
         }
     }
 }
