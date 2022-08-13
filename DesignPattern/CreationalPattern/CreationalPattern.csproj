@@ -9,9 +9,11 @@
     <Folder Include="AbstractFactory\" />
     <Folder Include="Product\" />
     <Folder Include="Builder\" />
+    <Folder Include="Client\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Product\" />
     <None Remove="Builder\" />
+    <None Remove="Client\" />
   </ItemGroup>
 </Project>
