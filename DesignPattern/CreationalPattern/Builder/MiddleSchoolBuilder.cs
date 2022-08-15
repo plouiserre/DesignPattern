@@ -5,7 +5,7 @@ namespace CreationalPattern.Builder
 {
     public class MiddleSchoolBuilder : EtablishmentBuilder
     {
-        private AbstractEtablishment _currentEtablishment { get; set; }
+        private Etablishment _currentEtablishment { get; set; }
 
         public MiddleSchoolBuilder()
         {
@@ -28,7 +28,7 @@ namespace CreationalPattern.Builder
             _currentEtablishment.AddTeacher(teacher);
         }
 
-        public override AbstractEtablishment GetEtablishment()
+        public override Etablishment GetEtablishment()
         {
             return _currentEtablishment;
         }

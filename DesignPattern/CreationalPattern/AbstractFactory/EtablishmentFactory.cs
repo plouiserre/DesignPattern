@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using CreationalPattern.Product;
 
 namespace CreationalPattern.AbstractFactory.Factory
@@ -6,10 +6,10 @@ namespace CreationalPattern.AbstractFactory.Factory
     //TODO add student and teachers in etablishment list
     public abstract class EtablishmentFactory
     {
-        public abstract AbstractEtablishment CreateEtablishment(string name);
+        public abstract Etablishment CreateEtablishment(string name);
 
-        public abstract AbstractTeacher CreateTeacher(string firstName, string lastName, string discipline, AbstractEtablishment etablishmentName);
+        public abstract Teacher CreateTeacher(string firstName, string lastName, string discipline, Etablishment etablishmentName);
 
-        public abstract AbstractPupil CreatePupil(string firstName, string lastName, string level, AbstractEtablishment etablishmentName);
+        public abstract Pupil CreatePupil(string firstName, string lastName, string level, Etablishment etablishmentName);
     }
 }

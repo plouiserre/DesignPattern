@@ -10,10 +10,12 @@
     <Folder Include="Product\" />
     <Folder Include="Builder\" />
     <Folder Include="Client\" />
+    <Folder Include="FactoryMethod\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Product\" />
     <None Remove="Builder\" />
     <None Remove="Client\" />
+    <None Remove="FactoryMethod\" />
   </ItemGroup>
 </Project>

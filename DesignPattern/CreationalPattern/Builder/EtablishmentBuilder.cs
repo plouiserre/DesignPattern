@@ -11,7 +11,7 @@ namespace CreationalPattern.Builder
 
         public abstract void BuildPupil(string firstName, string lastName, string level);
 
-        public abstract AbstractEtablishment GetEtablishment();
+        public abstract Etablishment GetEtablishment();
 
         public EtablishmentBuilder()
         {

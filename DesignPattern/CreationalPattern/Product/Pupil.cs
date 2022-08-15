@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CreationalPattern.Product
 {
-    public abstract class AbstractPupil
+    public class Pupil
     {
         public string LastName { get; set; }
 
@@ -11,7 +11,7 @@ namespace CreationalPattern.Product
 
         public string EtablishmentName { get; set; }
 
-        public AbstractPupil(string lastName, string firstName, string level, string etablishmentName)
+        public Pupil(string lastName, string firstName, string level, string etablishmentName)
         {
             LastName = lastName;
             FirstName = firstName;

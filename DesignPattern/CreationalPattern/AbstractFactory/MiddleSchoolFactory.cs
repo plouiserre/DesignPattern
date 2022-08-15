@@ -9,19 +9,19 @@ namespace CreationalPattern.AbstractFactory.Factory
         {
         }
 
-        public override AbstractEtablishment CreateEtablishment(string name)
+        public override Etablishment CreateEtablishment(string name)
         {
             var middleSchool = new MiddleSchool(name);
             return middleSchool;
         }
 
-        public override AbstractPupil CreatePupil(string firstName, string lastName, string level, AbstractEtablishment etablishment)
+        public override Pupil CreatePupil(string firstName, string lastName, string level, Etablishment etablishment)
         {
             var pupil = new MiddleSchoolPupil(firstName, lastName, level, etablishment.Name);
             return pupil;
         }
 
-        public override AbstractTeacher CreateTeacher(string firstName, string lastName, string discipline, AbstractEtablishment etablishment)
+        public override Teacher CreateTeacher(string firstName, string lastName, string discipline, Etablishment etablishment)
         {
             var teacher = new MiddleSchoolTeacher(firstName, lastName, discipline, etablishment.Name);
             return teacher;
