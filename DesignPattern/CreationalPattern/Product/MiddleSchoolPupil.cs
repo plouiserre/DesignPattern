@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CreationalPattern.Product
 {
-    public class MiddleSchoolPupil : Pupil
+    public class MiddleSchoolPupil : IPupil
     {
         public bool isIlletrate { get; set; }
 

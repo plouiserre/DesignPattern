@@ -1,5 +1,5 @@
 ﻿using System;
-using CreationalPattern.Product;
+using CreationalPattern.Product.AbstractFactory;
 
 namespace CreationalPattern.AbstractFactory.Factory
 {
@@ -9,21 +9,15 @@ namespace CreationalPattern.AbstractFactory.Factory
         {
         }
 
-        public override Etablishment CreateEtablishment(string name)
+        public IStudent CreateStudent(string firstName, string lastName, string level, string etablishmentName)
         {
-            var middleSchool = new MiddleSchool(name);
-            return middleSchool;
-        }
-
-        public override Pupil CreatePupil(string firstName, string lastName, string level, Etablishment etablishment)
-        {
-            var pupil = new MiddleSchoolPupil(firstName, lastName, level, etablishment.Name);
+            var pupil = new MiddleSchoolStudent(firstName, lastName, level, etablishmentName);
             return pupil;
         }
 
-        public override Teacher CreateTeacher(string firstName, string lastName, string discipline, Etablishment etablishment)
+        public ITeacher CreateTeacher(string firstName, string lastName, string discipline, string etablishmentName)
         {
-            var teacher = new MiddleSchoolTeacher(firstName, lastName, discipline, etablishment.Name);
+            var teacher = new MiddleSchoolTeacher(firstName, lastName, discipline, etablishmentName);
             return teacher;
         }
     }

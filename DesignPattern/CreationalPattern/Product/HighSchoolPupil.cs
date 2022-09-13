@@ -2,7 +2,7 @@
 namespace CreationalPattern.Product
 {
     //TODO add the last property created in other pattern
-    public class HighSchoolPupil : Pupil
+    public class HighSchoolPupil : IPupil
     {
 
         public bool IsSmoking { get; set; }

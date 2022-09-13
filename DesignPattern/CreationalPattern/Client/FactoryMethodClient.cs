@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CreationalPattern.FactoryMethod;
-using CreationalPattern.Product;
+using CreationalPattern.Product.AbstractFactory;
 
 namespace CreationalPattern.Client
 {
@@ -13,32 +13,49 @@ namespace CreationalPattern.Client
 
         public void CallPatern()
         {
-            var factoryHighSchool = new DoMakeHighSchool("Xavier Institute");
-            var factoryMiddleSchool = new DoMakeMiddleSchool("Massachusetts Academy");
+            var factoryHighSchool = new CreateHighSchool("Xavier Institute");
+            var factoryMiddleSchool = new CreateMiddleSchool("Massachusetts Academy");
 
-            Etablishment firstEtablishment = factoryHighSchool.CreateEtablishment();
-            Etablishment secondEtablishment = factoryMiddleSchool.CreateEtablishment();
+            ITeacher teacherFirst = factoryHighSchool.MakeTeacher("James", "Howlett", "sport");
+            ITeacher teacherSecond = factoryHighSchool.MakeTeacher("Katherine", "Pryde", "economics");
 
-            List<Etablishment> etablishments = new List<Etablishment>();
-            etablishments.Add(firstEtablishment);
-            etablishments.Add(secondEtablishment);
+            IStudent studentFirst = factoryHighSchool.MakeStudent("Illyana", "Raspoutine", "12");
+            IStudent studentSecond = factoryHighSchool.MakeStudent("Joshua", "Foley", "10");
+            IStudent studentThird = factoryHighSchool.MakeStudent("Tabitha", "Smith", "11");
 
-            Console.WriteLine("Start display of Factory Method");
-            foreach (Etablishment etablishment in etablishments)
+
+            ITeacher teacherThird = factoryMiddleSchool.MakeTeacher("Emma", "Frost", "mode");
+            ITeacher teacherFourth = factoryMiddleSchool.MakeTeacher("Sebastian", "Shaw", "psychologics");
+            ITeacher teacherFifth = factoryMiddleSchool.MakeTeacher("Harry", "Leleand", "politics");
+
+            IStudent studentFourth = factoryMiddleSchool.MakeStudent("Julian", "Keller", "9");
+            IStudent studentFifth = factoryMiddleSchool.MakeStudent("Sofía", "Mantega Barrett", "12");
+
+            var teachers = new List<ITeacher>();
+            teachers.Add(teacherFirst);
+            teachers.Add(teacherSecond);
+            teachers.Add(teacherThird);
+            teachers.Add(teacherFourth);
+            teachers.Add(teacherFifth);
+
+            var students = new List<IStudent>();
+            students.Add(studentFirst);
+            students.Add(studentSecond);
+            students.Add(studentThird);
+            students.Add(studentFourth);
+            students.Add(studentFifth);
+
+
+            foreach(ITeacher teacher in teachers)
             {
-                Console.WriteLine("Welcome in {0}", etablishment.Name);
-                Console.WriteLine("In {0}, we are presenting you our teachers");
-                foreach(Teacher teacher in etablishment.Teachers)
-                {
-                    Console.WriteLine("Professor {0} {1} in {2}", teacher.FirstName, teacher.LastName, teacher.Discipline);
-                }
-                Console.WriteLine("Now this is the turn for our student");
-                foreach (Pupil pupil in etablishment.Pupils)
-                {
-                    Console.WriteLine("Professor {0} {1} in {2}", pupil.FirstName, pupil.LastName, pupil.Level);
-                }
+                Console.WriteLine("Professor {0} {1} in {2}", teacher.FirstName, teacher.LastName, teacher.Discipline);
             }
-            Console.WriteLine("End display of Factory Method");
+
+            foreach (IStudent student in students)
+            {
+                Console.WriteLine("Student {0} {1} in {2}", student.FirstName, student.LastName, student.Level);
+            }
+            
         }
     }
 }

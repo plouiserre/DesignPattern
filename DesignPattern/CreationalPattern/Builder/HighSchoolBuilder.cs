@@ -1,5 +1,6 @@
 ﻿using System;
 using CreationalPattern.Product;
+using CreationalPattern.Product.AbstractFactory;
 
 namespace CreationalPattern.Builder
 {
@@ -11,24 +12,26 @@ namespace CreationalPattern.Builder
         {
         }
 
-        public override void BuildEtablishment(string name)
+        public void BuildEtablishment(string name)
         {
             _currentEtablishment = new HighSchool(name);
         }
 
-        public override void BuildPupil(string firstName, string lastName, string level)
+        public void BuildStudent(IStudent student)
         {
-            var pupil = new HighSchoolPupil(firstName, lastName, level, _currentEtablishment.Name);
-            _currentEtablishment.AddPupil(pupil);
+            var studentHighSchool = student as HighSchoolStudent;
+            studentHighSchool.EtablishmentName = _currentEtablishment.Name;
+            _currentEtablishment.AddStudent(studentHighSchool);
         }
 
-        public override void BuildTeacher(string firstName, string lastName, string discipline)
+        public void BuildTeacher(ITeacher teacher)
         {
-            var teacher = new HighSchoolTeacher(firstName, lastName, discipline, _currentEtablishment.Name);
-            _currentEtablishment.AddTeacher(teacher);
+            var teacherHighSchool = teacher as Product.AbstractFactory.HighSchoolTeacher;
+            teacherHighSchool.EtablishmentName = _currentEtablishment.Name;
+            _currentEtablishment.AddTeacher(teacherHighSchool);
         }
 
-        public override Etablishment GetEtablishment()
+        public Etablishment GetEtablishment()
         {
             return _currentEtablishment;
         }

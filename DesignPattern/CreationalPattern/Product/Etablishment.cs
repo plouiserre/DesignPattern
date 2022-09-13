@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CreationalPattern.Product.AbstractFactory;
 
 namespace CreationalPattern.Product
 {
@@ -8,28 +9,28 @@ namespace CreationalPattern.Product
     {
         public string Name { get; set; }
 
-        public List<Teacher> Teachers { get; set; }
+        public List<ITeacher> Teachers { get; set; }
 
-        public List<Pupil> Pupils { get; set; }
+        public List<IStudent> Students { get; set; }
 
 
         public Etablishment(string name)
         {
             Name = name;
-            Teachers = new List<Teacher>();
-            Pupils = new List<Pupil>();
+            Teachers = new List<ITeacher>();
+            Students = new List<IStudent>();
         }
 
 
-        public void AddTeacher(Teacher teacher)
+        public void AddTeacher(ITeacher teacher)
         {
             Teachers.Add(teacher);
         }
 
 
-        public void AddPupil(Pupil pupil)
+        public void AddStudent(IStudent student)
         {
-            Pupils.Add(pupil);
+            Students.Add(student);
         }
     }
 }
