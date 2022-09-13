@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using CreationalPattern.Product.AbstractFactory;
+using CreationalPattern.Product;
 
 namespace CreationalPattern.Product
 {
-    //TODO rename AbstractEtablishment in Etablishment and check I can pass this class to an abstract class
     public class Etablishment
     {
         public string Name { get; set; }

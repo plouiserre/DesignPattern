@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CreationalPattern.Product.AbstractFactory
+namespace CreationalPattern.Product
 {
     public class HighSchoolStudent : IStudent
     {

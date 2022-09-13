@@ -1,13 +1,28 @@
 ﻿using System;
 namespace CreationalPattern.Product
 {
-    public class HighSchoolTeacher : Teacher
+    public class HighSchoolTeacher : ITeacher
     {
-        public bool IsAgreation { get; set; }
+        public string Discipline { get; set; }
 
-        public HighSchoolTeacher(string firstName, string lastName, string discipline, string highSchoolName) :
-            base(firstName, lastName, discipline, highSchoolName)
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string EtablishmentName { get; set; }
+
+        public HighSchoolTeacher(string firstName, string lastName, string etablishmentName, string discipline)
         {
+            FirstName = firstName;
+            LastName = lastName;
+            EtablishmentName = etablishmentName;
+            Discipline = discipline;
+        }
+
+        public string GetDiscipline()
+        {
+            return Discipline;
         }
     }
 }
+

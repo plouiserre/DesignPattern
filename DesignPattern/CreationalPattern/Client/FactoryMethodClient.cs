@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CreationalPattern.FactoryMethod;
-using CreationalPattern.Product.AbstractFactory;
+using CreationalPattern.Product;
 
 namespace CreationalPattern.Client
 {

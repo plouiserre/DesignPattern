@@ -1,5 +1,5 @@
 ﻿using System;
-using CreationalPattern.Product.AbstractFactory;
+using CreationalPattern.Product;
 
 namespace CreationalPattern.FactoryMethod
 {

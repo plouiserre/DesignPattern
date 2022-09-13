@@ -11,13 +11,11 @@
     <Folder Include="Builder\" />
     <Folder Include="Client\" />
     <Folder Include="FactoryMethod\" />
-    <Folder Include="Product\AbstractFactory\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Product\" />
     <None Remove="Builder\" />
     <None Remove="Client\" />
     <None Remove="FactoryMethod\" />
-    <None Remove="Product\AbstractFactory\" />
   </ItemGroup>
 </Project>

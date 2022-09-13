@@ -1,6 +1,5 @@
 ﻿using System;
 using CreationalPattern.Product;
-using CreationalPattern.Product.AbstractFactory;
 
 namespace CreationalPattern.Builder
 {
@@ -8,11 +7,10 @@ namespace CreationalPattern.Builder
     {
         public abstract void BuildEtablishment(string name);
 
-        public abstract void BuildTeacher(ITeacher teacher);
+        public abstract void BuildTeacher(string firstname, string lastname, string discipline);
 
-        public abstract void BuildStudent(IStudent pupil);
+        public abstract void BuildStudent(string firstname, string lastname, string level);
 
-        //TODO voir si on la supprime
         public abstract Etablishment GetEtablishment();
 
     }

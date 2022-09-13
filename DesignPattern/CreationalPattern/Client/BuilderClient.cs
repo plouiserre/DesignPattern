@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using CreationalPattern.AbstractFactory.Factory;
 using CreationalPattern.Builder;
 using CreationalPattern.Product;
-using CreationalPattern.Product.AbstractFactory;
 
 namespace CreationalPattern.Client
 {
-    //TODO  finish this client when the problem present in EtablishmentDirector will be solved
-    //TODO factoriser les clients
+    //TODO corriger ma connerie en utilisant la partie builder
+    //TODO voir si on factorise les clients
     public class BuilderClient : IClient
     {
-        private HighSchoolFactory _highSchoolFactory { get; set; }
-        private MiddleSchoolFactory _middleSchoolFactory { get; set; }
+        private HighSchoolBuilder _highSchoolBuilder { get; set; }
+        private MiddleSchoolBuilder _middleSchoolBuilder { get; set; }
         private string _highSchool { get; set; }
         private string _middleSchool { get; set; }
 
         public BuilderClient()
         {
-            _highSchoolFactory = new HighSchoolFactory();
-            _middleSchoolFactory = new MiddleSchoolFactory();
+            _highSchoolBuilder = new HighSchoolBuilder();
+            _middleSchoolBuilder = new MiddleSchoolBuilder();
             _highSchool = "Riverdale HighSchool";
             _middleSchool = "Charles Xavier's Institut";
         }
@@ -33,21 +32,9 @@ namespace CreationalPattern.Client
         private void BuildHighSchool()
         {
             var builder = new HighSchoolBuilder();
-            var director = new EtablishmentDirector();
+            var director = new EtablishmentDirector();            
 
-            var firstHighSchoolStudent = _highSchoolFactory.CreateStudent("Archie", "Andrews", "11th grade", _highSchool) as Product.AbstractFactory.HighSchoolStudent;
-            var secondHighSchoolStudent = _highSchoolFactory.CreateStudent("Betty", "Cooper", "11th grade", _highSchool) as Product.AbstractFactory.HighSchoolStudent;
-            var students = new List<IStudent>();
-            students.Add(firstHighSchoolStudent);
-            students.Add(secondHighSchoolStudent);
-
-            var firstHighSchoolTeacher = _highSchoolFactory.CreateTeacher("James", "Howlett", "Sport", _highSchool) as Product.AbstractFactory.HighSchoolTeacher;
-            var secondHighSchoolTeacher = _highSchoolFactory.CreateTeacher("Jean", "Grey", "Sciences", _highSchool) as Product.AbstractFactory.HighSchoolTeacher;
-            var teachers = new List<Product.AbstractFactory.ITeacher>();
-            teachers.Add(firstHighSchoolTeacher);
-            teachers.Add(secondHighSchoolTeacher);
-
-            Etablishment etablishment = director.CreateEtablishment(builder, students, teachers, "Riverdale 's High School");
+            Etablishment etablishment = director.CreateHighSchool(builder, "Riverdale 's High School");
 
             DisplayInfoFromEtablishment(etablishment);
         }
@@ -56,20 +43,8 @@ namespace CreationalPattern.Client
         {
             var builder = new MiddleSchoolBuilder();
             var director = new EtablishmentDirector();
-            var firstMiddleSchoolStudent = _middleSchoolFactory.CreateStudent("Veronica", "Lodge", "11th grade", _middleSchool) as MiddleSchoolStudent;
-            var secondMiddleSchoolStudent = _middleSchoolFactory.CreateStudent("Forsythe", "Pendleton", "11th grade", _middleSchool) as MiddleSchoolStudent;
-            var students = new List<IStudent>();
-            students.Add(firstMiddleSchoolStudent);
-            students.Add(secondMiddleSchoolStudent);
 
-            var firstMiddleSchoolTeacher = _middleSchoolFactory.CreateTeacher("Ororo", "Munroe", "Maths", _middleSchool) as Product.AbstractFactory.MiddleSchoolTeacher;
-            var secondMiddleSchoolTeacher = _middleSchoolFactory.CreateTeacher("Scott", "Summers", "Literature", _middleSchool) as Product.AbstractFactory.MiddleSchoolTeacher;
-            var teachers = new List<ITeacher>();
-            teachers.Add(firstMiddleSchoolTeacher);
-            teachers.Add(secondMiddleSchoolTeacher);
-
-
-            Etablishment etablishment = director.CreateEtablishment(builder, students, teachers, "Charles Xavier's Intitute");
+            Etablishment etablishment = director.CreateMiddleSchool(builder, "Charles Xavier's Intitute");
 
             DisplayInfoFromEtablishment(etablishment);
         }

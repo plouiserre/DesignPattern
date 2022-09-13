@@ -1,7 +1,7 @@
 ﻿using System;
-namespace CreationalPattern.Product.AbstractFactory
+namespace CreationalPattern.Product
 {
-    public interface ITeacher
+    public interface IStudent
     {
         string FirstName
         {
@@ -18,12 +18,12 @@ namespace CreationalPattern.Product.AbstractFactory
             get;
             set;
         }
-        string Discipline
+        string Level
         {
             get;
             set;
         }
-        string GetDiscipline();
+        string GetLevel();
     }
 }
 

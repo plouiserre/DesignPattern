@@ -1,29 +1,44 @@
 ﻿ using System;
 using System.Collections.Generic;
 using CreationalPattern.Product;
-using CreationalPattern.Product.AbstractFactory;
 
 namespace CreationalPattern.Builder
 {
     public class EtablishmentDirector
     {
+        private string _middleSchool;
+        private string _highSchool;
+
+        private HighSchoolBuilder _highSchoolBuilder { get; set; }
+        private MiddleSchoolBuilder _middleSchoolBuilder { get; set; }
+
         public EtablishmentDirector()
         {
+            _highSchoolBuilder = new HighSchoolBuilder();
+            _middleSchoolBuilder = new MiddleSchoolBuilder();
+            _highSchool = "Riverdale HighSchool";
+            _middleSchool = "Charles Xavier's Institut";
         }
 
-        //TODO find a solution to the problem below
-        //not perfect because I do not know how to pass argument for BuildPupil and BuildTeacher
-        public Etablishment CreateEtablishment(EtablishmentBuilder builder, IList<IStudent> students, IList<ITeacher> teachers, string etablishmentName)
+        public Etablishment CreateHighSchool(EtablishmentBuilder builder, string etablishmentName)
         {
-            builder.BuildEtablishment(etablishmentName);
-            foreach(ITeacher teacher in teachers)
-            {
-                builder.BuildTeacher(teacher);
-            }
-            foreach (IStudent student in students)
-            {
-                builder.BuildStudent(student);
-            }
+            _highSchoolBuilder.BuildStudent("Archie", "Andrews", "11th grade");
+            _highSchoolBuilder.BuildStudent("Betty", "Cooper", "11th grade");
+
+            _highSchoolBuilder.BuildTeacher("James", "Howlett", "Sport");
+            _highSchoolBuilder.BuildTeacher("Jean", "Grey", "Sciences");
+            
+            return builder.GetEtablishment();
+        }
+
+        public Etablishment CreateMiddleSchool(EtablishmentBuilder builder, string etablishmentName)
+        {
+            _middleSchoolBuilder.BuildStudent("Veronica", "Lodge", "11th grade");
+            _middleSchoolBuilder.BuildStudent("Forsythe", "Pendleton", "11th grade");
+
+            _middleSchoolBuilder.BuildTeacher("Ororo", "Munroe", "Maths");
+            _middleSchoolBuilder.BuildTeacher("Scott", "Summers", "Litterature");
+
             return builder.GetEtablishment();
         }
     }

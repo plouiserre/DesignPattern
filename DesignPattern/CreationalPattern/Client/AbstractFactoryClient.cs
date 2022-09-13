@@ -1,6 +1,6 @@
 ﻿using System;
 using CreationalPattern.AbstractFactory.Factory;
-using CreationalPattern.Product.AbstractFactory;
+using CreationalPattern.Product;
 
 namespace CreationalPattern.Client
 {
