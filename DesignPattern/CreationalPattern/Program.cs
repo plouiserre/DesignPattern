@@ -7,7 +7,7 @@ namespace CreationalPattern
     {
         static void Main(string[] args)
         {
-            string pattern = "Method Factory";
+            string pattern = "Prototype";
             switch (pattern)
             {
                 case "Abstract Factory":
@@ -17,6 +17,10 @@ namespace CreationalPattern
                 case "Builder":
                     var builderClient = new BuilderClient();
                     builderClient.CallPatern();
+                    break;
+                case "Prototype":
+                    var prototypeClient = new PrototypeClient();
+                    prototypeClient.CallPatern();
                     break;
                 case "Method Factory":
                 default:
