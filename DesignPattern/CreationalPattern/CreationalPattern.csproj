@@ -5,4 +5,21 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="AbstractFactory\" />
+    <Folder Include="Product\" />
+    <Folder Include="Builder\" />
+    <Folder Include="Client\" />
+    <Folder Include="FactoryMethod\" />
+    <Folder Include="Prototype\" />
+    <Folder Include="Singleton\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Product\" />
+    <None Remove="Builder\" />
+    <None Remove="Client\" />
+    <None Remove="FactoryMethod\" />
+    <None Remove="Prototype\" />
+    <None Remove="Singleton\" />
+  </ItemGroup>
 </Project>
