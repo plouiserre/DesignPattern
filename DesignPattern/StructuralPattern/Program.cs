@@ -1,4 +1,5 @@
 ﻿using System;
+using StructuralPattern.Client;
 
 namespace StructuralPattern
 {
@@ -6,7 +7,15 @@ namespace StructuralPattern
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string pattern = "Adapter";
+            switch (pattern)
+            {
+                case "Adapter":
+                default:
+                    var adapterClient = new AdapterClient();
+                    adapterClient.CallPatern();
+                    break;
+            }
         }
     }
 }
