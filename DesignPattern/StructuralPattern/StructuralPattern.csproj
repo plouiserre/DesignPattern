@@ -9,10 +9,12 @@
     <None Remove="Adapter\" />
     <None Remove="Client\" />
     <None Remove="Product\" />
+    <None Remove="Bridge\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adapter\" />
     <Folder Include="Client\" />
     <Folder Include="Product\" />
+    <Folder Include="Bridge\" />
   </ItemGroup>
 </Project>

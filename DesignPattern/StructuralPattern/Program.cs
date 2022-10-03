@@ -5,6 +5,7 @@ namespace StructuralPattern
 {
     class Program
     {
+        //TODO factoriser les classes products de Adapter et Bridge
         static void Main(string[] args)
         {
             string pattern = "Adapter";
