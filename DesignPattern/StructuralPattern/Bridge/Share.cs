@@ -15,5 +15,5 @@ namespace StructuralPattern.Bridge
         }
     }
 }
-}
+
 

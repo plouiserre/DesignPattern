@@ -13,8 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adapter\" />
-    <Folder Include="Client\" />
     <Folder Include="Product\" />
-    <Folder Include="Bridge\" />
   </ItemGroup>
 </Project>

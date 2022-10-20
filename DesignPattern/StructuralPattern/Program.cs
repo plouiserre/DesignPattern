@@ -8,13 +8,17 @@ namespace StructuralPattern
         //TODO factoriser les classes products de Adapter et Bridge
         static void Main(string[] args)
         {
-            string pattern = "Adapter";
+            string pattern = "BridgeClient";
             switch (pattern)
             {
                 case "Adapter":
-                default:
                     var adapterClient = new AdapterClient();
                     adapterClient.CallPatern();
+                    break;
+                case "BridgeClient":
+                default:
+                    var bridgeCLient = new BridgeClient();
+                    bridgeCLient.CallPatern();
                     break;
             }
         }

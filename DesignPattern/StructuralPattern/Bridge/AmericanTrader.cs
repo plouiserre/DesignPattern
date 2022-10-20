@@ -3,47 +3,36 @@ using System.Collections.Generic;
 
 namespace StructuralPattern.Bridge
 {
-    public class AmericanTrader : ITrader
+    public class AmericanTrader : Trader, ITrader
     {
-        private float _eurosDollarsChange { get; set; }
+        private float _changeEurosDollars { get; set; }
 
-        private float _yuanDollarsChange { get; set; }
+        private float _changeYuanDollars { get; set; }
 
-        public Dictionary<Share, int> Shares { get; set; }
-        public float AmountCash { get; set; }
-
-        public AmericanTrader(float cash, float eurosDollarsChange, float yuanDollarsChange)
+        public AmericanTrader(float cash)
         {
             Shares = new Dictionary<Share, int>();
             AmountCash = cash;
-            _eurosDollarsChange = eurosDollarsChange;
-            _yuanDollarsChange = yuanDollarsChange;
+            _changeEurosDollars = 0.98f;
+            _changeYuanDollars = 0.14f;
         }
 
-        public bool AddAmericanShares(Share share, int quantity)
+        public override bool AddAmericanShares(Share share, int quantity)
         {
-            float priceBuy = share.Price * quantity;
-            if (priceBuy > AmountCash)
-                return false;
-            else
-            {
-                if (Shares.ContainsKey(share))
-                {
-
-                    int lastQuantity = Shares[share]
-                }
-                return true;
-            }
+            bool result = AddShares(share, quantity, 1);
+            return result;
         }
 
-        public bool AddFrenchShares(Share share, int quantity)
+        public override bool AddFrenchShares(Share share, int quantity)
         {
-            throw new NotImplementedException();
+            bool result = AddShares(share, quantity, _changeEurosDollars);
+            return result;
         }
 
-        public bool AddChineseShares(Share share, int quantity)
+        public override bool AddChineseShares(Share share, int quantity)
         {
-            throw new NotImplementedException();
+            bool result = AddShares(share, quantity, _changeYuanDollars);
+            return result;
         }
     }
 }
